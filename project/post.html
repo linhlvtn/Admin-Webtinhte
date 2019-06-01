@@ -22,11 +22,14 @@
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN PAGE LEVEL PLUGINS -->
     <link href="plugin/morris/morris.css" rel="stylesheet" type="text/css" />
+    <link href="plugin/select2/css/select2.min.css" rel="stylesheet" type="text/css" />
+    <link href="plugin/select2/css/select2-bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- END PAGE LEVEL PLUGINS -->
     <!-- BEGIN THEME GLOBAL STYLES -->
     <link href="plugin/components-md.min.css" rel="stylesheet" id="style_components" type="text/css" />
     <link href="plugin/plugins-md.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME GLOBAL STYLES -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <!-- BEGIN THEME LAYOUT STYLES -->
     <link href="plugin/layout5/css/layout.min.css" rel="stylesheet" type="text/css" />
     <link href="plugin/layout5/css/custom.min.css" rel="stylesheet" type="text/css" />
@@ -364,45 +367,241 @@
                 <!-- END BREADCRUMBS -->
                 <!-- BEGIN PAGE BASE CONTENT -->
                 <!-- BEGIN DASHBOARD STATS 1-->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="control_heading">
-                            <div class="btn-group btn-group-circle">
-                                <button type="button" class="btn btn-default">
-                                    <i class="fa fa-plus"></i> Thêm trang</button>
-                                <button type="button" class="btn btn-default">
-                                    <i class="fa fa-cogs"></i> Chỉnh sửa</button>
-                                <button type="button" class="btn btn-default green">
-                                    <i class="fa fa-save"></i> Lưu lại</button>
+                <div class="row pagepost">
+
+                    <div class="col-sm-8">
+                        <!-- BEGIN Portlet PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-green-sharp">
+                                    <i class="icon-speech font-green-sharp"></i>
+                                    <span class="caption-subject bold uppercase"> Thông tin chung</span>
+                                    <span class="caption-helper">thông tin sản phẩm</span>
+                                </div>
+                                <div class="actions">
+                                    <a class="btn btn-circle btn-icon-only btn-default fullscreen" href="javascript:;">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <form role="form">
+                                    <div class="form-body">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input ">
+                                                    <input type="text" class="form-control" id="form_control_1" value=""
+                                                        placeholder="nhập vào đây ...">
+                                                    <label for="form_control_1">Tên sản phẩm:</label>
+                                                    <span class="help-block">Ký tự tối đa 200</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input ">
+                                                    <input type="text" class="form-control" id="form_control_1" value=""
+                                                        placeholder="Nếu không nhập sẽ tự sinh theo Tiêu đề">
+                                                    <label for="form_control_1">URL trình duyệt:</label>
+                                                    <span class="help-block">ví dụ: san-pham-tai-nghe-cao-cap</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input ">
+                                                    <input type="text" class="form-control" id="form_control_1" value=""
+                                                        placeholder="nhập vào đây ...">
+                                                    <label for="form_control_1">Mã sản phẩm:</label>
+                                                    <span class="help-block">Ví dụ: SKU0001</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input ">
+                                                    <input type="text" class="form-control" id="form_control_1" value=""
+                                                        placeholder="nhập giá bán...">
+                                                    <label for="form_control_1">Giá bán:</label>
+                                                    <span class="help-block">ví dụ: nhập 100000 = 100.000đ</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group form-md-line-input ">
+                                                    <input type="text" class="form-control" id="form_control_1" value=""
+                                                        placeholder="nhập giá khuyến mại...">
+                                                    <label for="form_control_1">Giá khuyến mại:</label>
+                                                    <span class="help-block">ví dụ: nhập 100000 = 100.000đ</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input ">
+                                                    <input type="text" class="form-control" id="form_control_1" value=""
+                                                        placeholder="nhập vào đây ...">
+                                                    <label for="form_control_1">Thời gian bảo hành:</label>
+                                                    <span class="help-block">Ví dụ: 12 Tháng, 12 Năm...</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input">
+                                                    <textarea class="form-control" rows="3"
+                                                        placeholder="Mô tả tóm tắt sản phẩm"></textarea>
+                                                    <label for="form_control_1">Mô tả tóm tắt:</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input ">
+                                                    <label for="multiple" class="control-label">Chọn thương
+                                                        hiệu:</label>
+                                                    <select id="multiple" class="form-control select2-multiple"
+                                                        multiple>
+                                                        <optgroup label="Brand product">
+                                                            <option value="">Samsung</option>
+                                                            <option value="">LG</option>
+                                                            <option value="">Apple</option>
+                                                            <option value="">TechOne</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input ">
+                                                    <label for="multiple" class="control-label">Chọn chuyên mục:</label>
+                                                    <select id="multiple" class="form-control select2-multiple"
+                                                        multiple>
+                                                        <optgroup label="Brand product">
+                                                            <option value="">Tai nghe cao cấp</option>
+                                                            <option value="">Tai nghe sang chảnh</option>
+                                                            <option value="">Tai nghe Bluetool</option>
+                                                            <option value="">Tai nghe không dây</option>
+                                                        </optgroup>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <div class="form-group form-md-line-input ">
+                                                    <label for="form_control_1">Nội dung:</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+                        <!-- END Portlet PORTLET-->
+                    </div>
+
+
+
+                    <div class="col-sm-4">
+                        <!-- BEGIN Portlet PORTLET-->
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-green-sharp">
+                                    <i class="icon-speech font-green-sharp"></i>
+                                    <span class="caption-subject bold uppercase"> Hình ảnh sản phẩm</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Portlet PORTLET-->
+
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-green-sharp">
+                                    <i class="icon-speech font-green-sharp"></i>
+                                    <span class="caption-subject bold uppercase"> Thuộc tính sản phẩm</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-md-checkboxes">
+                                            <label>Vị trí thuộc tính sản phẩm</label>
+                                            <div class="md-checkbox-inline">
+                                                <div class="md-checkbox">
+                                                    <input type="checkbox" id="checkbox6" class="md-check">
+                                                    <label for="checkbox6">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span> Khuyến mại</label>
+                                                </div>
+                                                <div class="md-checkbox">
+                                                    <input type="checkbox" id="checkbox7" class="md-check">
+                                                    <label for="checkbox7">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span> Bán chạy</label>
+                                                </div>
+                                                <div class="md-checkbox">
+                                                    <input type="checkbox" id="checkbox8" class="md-check">
+                                                    <label for="checkbox8">
+                                                        <span></span>
+                                                        <span class="check"></span>
+                                                        <span class="box"></span> Mới 2018 </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Trạng thái</label>
+                                        <div class="md-radio-inline">
+                                            <div class="md-radio">
+                                                <input type="radio" id="radio53" name="radio2" class="md-radiobtn"
+                                                    checked>
+                                                <label for="radio53">
+                                                    <span></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span> Duyệt </label>
+                                            </div>
+                                            <div class="md-radio has-error">
+                                                <input type="radio" id="radio54" name="radio2" class="md-radiobtn">
+                                                <label for="radio54">
+                                                    <span></span>
+                                                    <span class="check"></span>
+                                                    <span class="box"></span> Không duyệt </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Portlet PORTLET-->
+
+                        <div class="portlet light bordered">
+                            <div class="portlet-title">
+                                <div class="caption font-green-sharp">
+                                    <i class="icon-speech font-green-sharp"></i>
+                                    <span class="caption-subject bold uppercase">SEO Customer</span>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-md-line-input ">
+                                            <input type="text" class="form-control" id="form_control_1" value=""
+                                                placeholder="nhập vào đây ...">
+                                            <label for="form_control_1">PageTitle:</label>
+                                            <span class="help-block">Ký tự tối đa: 200</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-md-line-input">
+                                            <textarea class="form-control" rows="3"
+                                                placeholder="Mô tả tóm tắt hiển thị"></textarea>
+                                            <label for="form_control_1">Description:</label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group form-md-line-input ">
+                                            <input type="text" class="form-control" id="form_control_1" value=""
+                                                placeholder="nhập vào đây ...">
+                                            <label for="form_control_1">Keywords:</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END Portlet PORTLET-->
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="row manager_page">
-                            <div class="col-md-3">
-                                <button type="button"
-                                    class="btn blue-hoki btn-outline sbold uppercase btn-block btn-lg">Menu Top</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button"
-                                    class="btn blue-hoki btn-outline sbold uppercase btn-block btn-lg">Menu
-                                    Bottom</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button"
-                                    class="btn blue-hoki btn-outline sbold uppercase btn-block btn-lg">Thương
-                                    hiệu</button>
-                            </div>
-                            <div class="col-md-3">
-                                <button type="button"
-                                    class="btn blue-hoki btn-outline sbold uppercase btn-block btn-lg">Module</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- END PAGE BASE CONTENT -->
             </div>
@@ -434,12 +633,17 @@
     <script src="plugin/moment.min.js" type="text/javascript"></script>
     <script src="plugin/morris/morris.min.js" type="text/javascript"></script>
     <script src="plugin/morris/raphael-min.js" type="text/javascript"></script>
+    <script src="plugin/select2/js/select2.full.min.js" type="text/javascript"></script>
     <!-- END PAGE LEVEL PLUGINS -->
 
     <!-- BEGIN THEME GLOBAL SCRIPTS -->
     <script src="plugin/app.min.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="plugin/components-select2.min.js"></script>
     <!-- BEGIN THEME LAYOUT SCRIPTS -->
     <script src="plugin/layout.min.js" type="text/javascript"></script>
+
+    <!-- END THEME LAYOUT SCRIPTS -->
 </body>
 
 </html>
